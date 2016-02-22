@@ -21,7 +21,7 @@ Create a function `doAsync` which accepts an array as input. Each element in the
 ]
 ```
 
-`doAsync` should apply `asyncOp` for all elements in the input array. Each application of `asyncOp` should be either executed in series or parallel depending on how the elements are arranged. If the elements are bundled together in an array, then `asyncOp` will be applied in each of these elements in parallel.
+`doAsync` should apply `asyncOp` for all elements in the input array. Each application of `asyncOp` should be either executed in series or parallel depending on how the elements are arranged. If the elements are bundled together in an array, then `asyncOp` will be applied in these elements in parallel.
 
 ##### Example Usage
 ```js
@@ -71,4 +71,40 @@ AJK092shLKmblkg
 CHUNK: kms.zenoan.
 642ksLMMD0gkms
 zenoan
+```
+
+## Resource Pooling
+
+Create a class `ResourceManager` which accepts an integer `count` as input. `ResourceManager` should manage a limited number of `resource` objects. The maximum number of `resource` objects that can be created is determined by `count`.
+
+`ResourceManager` should implement a function `borrow` which accepts a callback as parameter. The `borrow` function should *reserve* a resource object and pass it to the caller through the callback. A `resource` object can never be acquired by other `borrowers` until the `release` function is called.
+
+##### Example Usage
+```js
+let pool = new ResourcePool(2);
+console.log('START');
+pool.borrow((res) => {
+  console.log('RES: 1');
+
+  setTimeout(() => {
+    res.release();
+  }, 500);
+
+  console.log('throttled');
+});
+pool.borrow((res) => {
+  console.log('RES: 2');
+});
+pool.borrow((res) => {
+  console.log('RES: 3');
+});
+```
+
+##### Example Output
+```batch
+START
+RES: 1
+RES: 2
+throttled
+RES: 3
 ```
