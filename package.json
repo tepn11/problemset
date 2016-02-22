@@ -1,0 +1,7 @@
+{
+  "name": "problemset",
+  "version": "1.0.0",
+  "dependencies": {
+    "rand-token": "^0.2.1"
+  }
+}
