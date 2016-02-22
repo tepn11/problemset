@@ -6,7 +6,7 @@
 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
 ```
 
-## Asynchronous Operations
+## 1. Asynchronous Operations
 
 Create a function `doAsync` which accepts an array as input. Each element in the array can be either of type `String` or `[String]`.
 
@@ -46,7 +46,7 @@ START: D
 FINISH: D
 ```
 
-## Streams
+## 2. Streams
 
 Create a class `RandStringSource` which accepts an instance of the class `RandStream`. `RandStringSource` should be a subclass of `events.EventEmitter`.
 
@@ -73,7 +73,7 @@ CHUNK: kms.zenoan.
 zenoan
 ```
 
-## Resource Pooling
+## 3. Resource Pooling
 
 Create a class `ResourceManager` which accepts an integer `count` as input. `ResourceManager` should manage a limited number of `resource` objects. The maximum number of `resource` objects that can be created is determined by `count`.
 
