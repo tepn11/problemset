@@ -1,4 +1,4 @@
-## Library
+### Library
 
 * `asyncOp` - Simulates an asynchronous operation. Accepts a value `input` which is printed before and after the asynchronous operation.
 * `RandStream` - Extends `stream.Readable`. Generates a stream of random characters from the following character set:
@@ -6,7 +6,7 @@
 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
 ```
 
-### Asynchronous Operations
+## Asynchronous Operations
 
 Create a function `doAsync` which accepts an array as input. Each element in the array can be either of type `String` or `[String]`.
 
@@ -44,7 +44,7 @@ START: D
 FINISH: D
 ```
 
-### Stream
+## Streams
 
 Create a class `RandStringSource` which accepts an instance of the class `RandStream`. `RandStringSource` should be a subclass of `events.EventEmitter`.
 
