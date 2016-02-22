@@ -1,5 +1,6 @@
 ## Library
 
+* `asyncOp` - Simulates an asynchronous operation. Accepts a value `input` which is printed before and after the asynchronous operation. 
 * `RandStream` - extends `stream.Readable`. Generates a stream of random characters from the following character set:
 ```
 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.

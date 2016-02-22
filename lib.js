@@ -23,6 +23,24 @@ class RandStream extends stream.Readable {
   }
 }
 
+function asyncOp (input, callback) {
+  console.log(`start: ${input}`);
+
+  let prom = new Promise(function(resolve) {
+    setTimeout(() => {
+      console.log(`finish: ${input}`);
+      resolve();
+    }, Math.random() * 1000);
+  });
+
+  if(!callback) {
+    return prom;
+  }
+
+  prom.then(callback);
+}
+
 module.exports = {
-  RandStream
+  RandStream,
+  asyncOp
 };
