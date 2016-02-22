@@ -14,12 +14,14 @@ Create a function `doAsync` which accepts an array as input. Each element in the
 ```js
 [
   'A',
-  [ 'B', 'C' ],
-  'D'
+  [ 'B', 'C', 'D', 'E' ],
+  'F',
+  'G',
+  [ 'H', 'I' ]
 ]
 ```
 
-`doAsync` should apply `asyncOp` for all elements in the input array. Each application of `asyncOp` should be either executed in series or parallel depending on how the elements are arranged. If the elements are bundled together in an array, then `asyncOp` will be applied in each of them in parallel.
+`doAsync` should apply `asyncOp` for all elements in the input array. Each application of `asyncOp` should be either executed in series or parallel depending on how the elements are arranged. If the elements are bundled together in an array, then `asyncOp` will be applied in each of these elements in parallel.
 
 ##### Example Usage
 ```js
