@@ -1,6 +1,6 @@
 ### Library
 
-* `asyncOp` - Simulates an asynchronous operation. Accepts a value `input` which is printed before and after the asynchronous operation.
+* `asyncOp` - Simulates an asynchronous IO operation. Accepts a value `input` which is printed before and after the asynchronous operation.
 * `RandStream` - Extends `stream.Readable`. Generates a stream of random characters from the following character set:
 ```
 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.
@@ -77,7 +77,7 @@ zenoan
 
 Create a class `ResourceManager` which accepts an integer `count` as input. `ResourceManager` should manage a limited number of `resource` objects. The maximum number of `resource` objects that can be created is determined by `count`.
 
-`ResourceManager` should implement a function `borrow` which accepts a callback as parameter. The `borrow` function should *reserve* a resource object and pass it to the caller through the callback. A `resource` object can never be acquired by other `borrowers` until the `release` function is called.
+`ResourceManager` should implement a function `borrow` which accepts a callback as parameter. The `borrow` function should *reserve* a resource object and pass it to the caller through the callback. A `resource` object can never be acquired by other `borrowers` until the `release` function in the `resource` object is called.
 
 ##### Example Usage
 ```js
