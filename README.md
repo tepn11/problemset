@@ -1,4 +1,7 @@
-### Library
+### Environment
+* NodeJS `v4.3.0` or later
+
+### Library (lib.js)
 
 * `asyncOp` - Simulates an asynchronous IO operation. Accepts a value `input` which is printed before and after the asynchronous operation.
 * `RandStream` - Extends `stream.Readable`. Generates a stream of random characters from the following character set:
@@ -8,7 +11,7 @@
 
 ## 1. Asynchronous Operations
 
-Create a function `doAsync` which accepts an array as input. Each element in the array can be either of type `String` or `[String]`.
+Create a function `doAsync` which accepts an array `input`. Each element in the array can be either of type `String` or `[String]`.
 
 #### Example Input
 ```js
@@ -21,7 +24,7 @@ Create a function `doAsync` which accepts an array as input. Each element in the
 ]
 ```
 
-`doAsync` should apply `asyncOp` for all elements in the input array. Each application of `asyncOp` should be either executed in series or parallel depending on how the elements are arranged. If the elements are bundled together in an array, then `asyncOp` will be applied in these elements in parallel.
+`doAsync` should apply `asyncOp` for all elements in `input`. Each application of `asyncOp` should be either executed in series or parallel with each other depending on how they are arranged. If the elements are bundled together in an array, then `asyncOp` will be applied in parallel.
 
 ##### Example Usage
 ```js
@@ -81,22 +84,26 @@ Create a class `ResourceManager` which accepts an integer `count` as input. `Res
 
 ##### Example Usage
 ```js
-let pool = new ResourcePool(2);
+let pool = new ResourceManager(2);
 console.log('START');
+
+let timestamp = Date.now();
+
 pool.borrow((res) => {
   console.log('RES: 1');
 
   setTimeout(() => {
     res.release();
   }, 500);
-
-  console.log('throttled');
 });
+
 pool.borrow((res) => {
   console.log('RES: 2');
 });
+
 pool.borrow((res) => {
   console.log('RES: 3');
+  console.log('DURATION: ' + (Date.now() - timestamp));
 });
 ```
 
@@ -105,6 +112,6 @@ pool.borrow((res) => {
 START
 RES: 1
 RES: 2
-throttled
 RES: 3
+DURATION: 514
 ```
